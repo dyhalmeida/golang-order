@@ -1,6 +1,8 @@
 package usecase
 
-import "github.com/dyhalmeida/golang-order/internal/entity"
+import (
+	"github.com/dyhalmeida/golang-order/internal/entity"
+)
 
 type OrderInput struct {
 	ID    string
@@ -27,6 +29,7 @@ func NewCalculateFinalPrice(orderRepository entity.OrderRepositoryInterface) *Ca
 
 func (calculateFinalPrice *CalculateFinalPrice) Execute(input OrderInput) (*OrderOutput, error) {
 	order, err := entity.NewOrder(input.ID, input.Price, input.Tax)
+
 	if err != nil {
 		return nil, err
 	}
@@ -39,10 +42,10 @@ func (calculateFinalPrice *CalculateFinalPrice) Execute(input OrderInput) (*Orde
 		return nil, err
 	}
 	return &OrderOutput{
-		order.ID,
-		order.Price,
-		order.Tax,
-		order.FinalPrice,
+		ID:         order.ID,
+		Price:      order.Price,
+		Tax:        order.Tax,
+		FinalPrice: order.FinalPrice,
 	}, nil
 
 }
