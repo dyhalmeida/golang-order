@@ -32,6 +32,7 @@ func main() {
 	msgRabbitmqChannel := make(chan amqp.Delivery)
 	go rabbitmq.Consume(ch, msgRabbitmqChannel)
 	rabbitmqWorker(msgRabbitmqChannel, uc)
+
 }
 
 func rabbitmqWorker(msgChan chan amqp.Delivery, uc *usecase.CalculateFinalPrice) {

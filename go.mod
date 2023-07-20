@@ -3,6 +3,7 @@ module github.com/dyhalmeida/golang-order
 go 1.20
 
 require (
+	github.com/go-chi/chi v1.5.4
 	github.com/google/uuid v1.3.0
 	github.com/lib/pq v1.10.9
 	github.com/rabbitmq/amqp091-go v1.8.1
